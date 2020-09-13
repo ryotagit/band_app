@@ -10,7 +10,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @likes = Like.where(post_id: @post.id)
-    
+    @comments = @post.comments
+
     
   end
   
