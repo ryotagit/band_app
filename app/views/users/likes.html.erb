@@ -12,12 +12,11 @@
     
     <ul class="user-tabs">
       <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
-      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+      <li class="active"><%= link_to("参加希望した投稿", "/users/#{@user.id}/likes") %></li>
     </ul>
     
-    <% @likes.each do |like| %>
-      <% post = Post.find_by(id: like.post_id) %>
-      
+  <% @likes.each do |like| %>
+    <% post = Post.find_by(id: like.post_id) %>
       <div class="posts-index-item">
         <div class="post-left">
           <img src="<%= "/user_images/#{post.user.image_name}" %>">
@@ -29,6 +28,7 @@
           <%= link_to(post.content, "/posts/#{post.id}") %>
         </div>
       </div>
+    
     <% end %>
   </div>
 </div>
