@@ -6,7 +6,8 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
   
-  belongs_to :user
+  has_many :users, through: :comments
   has_many :comments, :dependent => :destroy
+  accepts_nested_attributes_for :comments
   
 end
